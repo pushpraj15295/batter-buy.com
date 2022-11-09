@@ -1,37 +1,31 @@
 const express = require("express");
-const { userModel } = require("../model");
+const { productModel } = require("../model");
 const jwt = require("jsonwebtoken");
+const blacklistModel = require("../model/Blacklist.model");
 const app = express.Router();
 
-app.post("/signup", async (req,res)=>{
-    const { email } = req.body
+app.post("/add-product", async (req,res)=>{
     try{
-        const user = await userModel.findOne({email});
-        if(user) return res.send("user already exist");
-        const newUser = await userModel.create(req.body);
-        res.send("User created Successfully");
+        const newProduct = await productModel.create(req.body);
+        res.send("Product added Successfully");
     }catch(e){
         res.send(e.message)
     }
 })
 
-app.post("/login", async (req,res)=>{
-    const { email, password } = req.body
+app.get("/", async (req,res)=>{
+    const mToken = req.headers.authorization
+    const bToken = await blacklistModel.findOne({token:mToken});
+    if(bToken) return res.send("Token is Blacklisted try login again.")
     try{
-        const user = await userModel.findOne({email, password});
-        if(!user) return res.send("Entered Wrong Credentials");
-        const mainToken = jwt.sign({email: user.email, id: user._id }, "MAIN_SECRET",{
-            expiresIn: "2 days"
-        })
-        const refreshToken = jwt.sign({email: user.email, id: user._id }, "REFRESH_SECRET", {
-            expiresIn: "1 week"
-        })
+        const verify = jwt.verify(mToken,"MAIN_SECRET");
+        const products = await productModel.find();
         res.send({
-            message: "User Logged in Successfull",
-            mToken: mainToken,
-            rToken: refreshToken
-        });
+            message: 'Success',
+            products: products
+        })
     }catch(e){
+        if(e.message==='jwt expired') await blacklistModel.create(mToken);
         res.send(e.message)
     }
 })
