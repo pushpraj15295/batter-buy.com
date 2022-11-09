@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import styles from "./Signup.module.css";
+import { Link } from "react-router-dom";
 
 const init = {
   email: "",
@@ -40,7 +40,7 @@ const Login = () => {
       <Box width="100%">
         <Box width="40%" margin="auto" marginTop="35px">
           <Text fontSize="30px" fontWeight="bold" textAlign="center">
-           Login page
+           Login here
           </Text>
           <br />
           <br />
@@ -79,6 +79,10 @@ const Login = () => {
             </InputGroup>
           </FormControl>
           <br />
+          <Flex margin="5px" justifyContent="space-between">
+                 <Box><Link to="#" > <Text fontSize="15px" fontWeight="bold" _hover={{ textDecoration:"underline" }}>Forgot Password</Text> </Link></Box>
+                 <Box> <Link to="/signup" > <Text fontSize="15px" fontWeight="bold" _hover={{ textDecoration:"underline" }}>Create an account</Text> </Link></Box>
+            </Flex>
           <br />
           <Button
             loadingText="Submitting"
