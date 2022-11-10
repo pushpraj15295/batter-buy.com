@@ -12,6 +12,9 @@ import {
 import { Input } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import { FcGoogle } from 'react-icons/fc';
+import {AiOutlineGithub} from 'react-icons/ai'
+import {MdEmail} from "react-icons/md"
 
 const init = {
   name: "",
@@ -39,9 +42,9 @@ const Signup = () => {
   return (
     <Flex>
       <Box width="100%">
-        <Box width="40%" margin="auto" marginTop="35px">
+        <Box width="35%" margin="auto" marginTop="25px" boxShadow="rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px" padding="25px" borderRadius="4px">
           <Text fontSize="30px" fontWeight="bold" textAlign="center">
-            Create an account
+            Sign up
           </Text>
           <br />
           <br />
@@ -96,10 +99,10 @@ const Signup = () => {
           </FormControl>
           <br />
           <Flex margin="5px" justifyContent="space-between">
-                 <Box><Link to="#" > <Text fontSize="15px" fontWeight="bold" _hover={{ textDecoration:"underline" }}>Forgot Password</Text> </Link></Box>
+                 <Box><Link to="/forgetpassword" > <Text fontSize="15px" fontWeight="bold" _hover={{ textDecoration:"underline" }}>Forgot Password</Text> </Link></Box>
                  <Box> <Link to="/login" > <Text fontSize="15px" fontWeight="bold" _hover={{ textDecoration:"underline" }}>already have an account</Text> </Link></Box>
             </Flex>
-          <br />
+
           <Button
             height="45px"
             loadingText="Submitting"
@@ -112,7 +115,22 @@ const Signup = () => {
           >
             Sign up
           </Button>
+
+
+          <br /><br />
+         <Flex>
+             <Box borderTop="2px solid" width="45%"></Box>
+              <Box border="2px solid black" padding="5px"><Text>OR</Text></Box>   
+              <Box borderBottom="2px solid" width="45%"></Box>
+         </Flex>
+         <br />
+         <Flex justifyContent="space-evenly">
+            <Box><a href=""><FcGoogle size={45} /></a></Box>
+            <Box><a href="https://github.com/login/oauth/authorize?client_id=45fe4026a9cfec945bda"><AiOutlineGithub size={45}/></a></Box>
+            <Box><a href=""><MdEmail size={45}/></a></Box>
+         </Flex>
         </Box>
+        
       </Box>
     </Flex>
   );
