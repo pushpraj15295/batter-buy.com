@@ -1,10 +1,8 @@
-const {Schema, model} = require("mongoose");
-
+//******************************************************************************************OTP model + schema */
+const { Schema, model } = require("mongoose");
 const otpSchema = new Schema({
-    otp:{type:String},
-    userId:{ type: Schema.Types.ObjectId, ref: 'user', required: true }
-})
-
-const otpModel = model("otp",otpSchema);
-
+  otp: { type: String },
+  userId: { type: Schema.Types.ObjectId, ref: "user", required: true },
+});
+const otpModel = model("otp", otpSchema);
 module.exports = otpModel;
