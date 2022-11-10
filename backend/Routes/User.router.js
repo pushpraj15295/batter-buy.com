@@ -1,3 +1,4 @@
+//******************************************************************************************************User route */
 const express = require("express");
 const { userModel, blacklistModel, otpModel } = require("../model/");
 const jwt = require("jsonwebtoken");
@@ -12,7 +13,7 @@ app.post("/signup", async (req,res)=>{
         res.send(e.message);
     }
 })
-
+//****************************************************************************** /login   */
 app.post("/login", async (req,res)=>{
     const { email, password } = req.body
     try{
@@ -21,7 +22,7 @@ app.post("/login", async (req,res)=>{
         res.send(e.message)
     }
 })
-
+//******************************************************************************  /refresh token  */
 app.post("/refresh", async(req,res)=>{
     const rToken = req.headers.authorization;
     try{
@@ -33,7 +34,7 @@ app.post("/refresh", async(req,res)=>{
         return res.status(404).send(e.message); 
     }
 });
-
+//****************************************************************************  /reset-password */
 app.post("/reset-password/getotp",async (req,res)=>{
     const { email, password } = req.body;
     try{
@@ -45,7 +46,7 @@ app.post("/reset-password/getotp",async (req,res)=>{
         return res.status(404).send(e.message);
     }
 });
-
+//***************************************************************************** /update-password */
 app.post("/update-password", async(req,res)=>{
     const mToken = req.headers.authorization;
     const {OTP, newPassword} = req.body

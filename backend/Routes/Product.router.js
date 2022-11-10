@@ -1,3 +1,4 @@
+//*****************************************************************************************************product route */
 const express = require("express");
 const { productModel } = require("../model");
 const jwt = require("jsonwebtoken");
