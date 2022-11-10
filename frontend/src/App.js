@@ -10,6 +10,7 @@ function App() {
        <div><Link to="/login">Login</Link>
        <Link to="/signup">signup</Link>
        <Link to="/forgetpassword">ForgetPassword</Link>
+       <Link to="/resetPassword">ResetPassword</Link>
        </div>
          <AllRoutes/>
     </div>
