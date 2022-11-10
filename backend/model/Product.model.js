@@ -4,7 +4,8 @@ const { model, Schema } = require("mongoose");
 const productSchema = new Schema({
   name: { type: String, required: true },
   quantity: { type: Number, required: true },
-  categories: [{ type: String }],
+  categories: { type: String },
+  gender: { type:String, enum:["male","female"] },
   price: { type: Number, required: true },
   rating: { type: Number, min: 0, max: 5 },
   description: { type: String },

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/betterbuy");
+    await mongoose.connect("mongodb+srv://pushpa:raj@cluster0.ervxzhg.mongodb.net/better-buy");
     console.log(`Database connected`);
   } catch (e) {
     console.log(e.message);
