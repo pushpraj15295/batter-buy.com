@@ -7,10 +7,11 @@ import AllRoutes from './Router/AllRoutes';
 function App() {
   return (
     <div className="App">
-       {/* <div><Link to="/login">Login</Link>
+       <div><Link to="/login">Login</Link>
        <Link to="/signup">signup</Link>
+       <Link to="/forgetpassword">ForgetPassword</Link>
        </div>
-         <AllRoutes/> */}
+         <AllRoutes/>
     </div>
   );
 }
