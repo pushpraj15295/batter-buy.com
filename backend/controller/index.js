@@ -1,4 +1,4 @@
 // this is index file 
-const { loginController, signupController } = require("./User.Controller");
+const { loginController, signupController, refreshController } = require("./User.Controller");
 
-module.exports = { loginController, signupController }
+module.exports = { loginController, signupController, refreshController }

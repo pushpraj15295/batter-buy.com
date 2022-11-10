@@ -2,7 +2,8 @@ const express = require("express");
 const { userModel, blacklistModel, otpModel } = require("../model/");
 const jwt = require("jsonwebtoken");
 const app = express.Router();
-const { loginController, signupController } = require("../controller/");
+const { loginController, signupController, refreshController } = require("../controller/");
+
 app.post("/signup", async (req,res)=>{
     const { email } = req.body
     try{
@@ -24,7 +25,7 @@ app.post("/login", async (req,res)=>{
 app.post("/refresh", async(req,res)=>{
     const rToken = req.headers.authorization;
     try{
-        
+        return refreshController()
     }catch(e){
         if(e.message==="jwt expired") { const token = await blacklistModel.create({token:rToken});
             console.log(token)
@@ -43,7 +44,6 @@ app.post("/reset-password/getotp",async (req,res)=>{
     }catch(e){
         return res.status(404).send(e.message);
     }
-    
 });
 
 app.post("/update-password", async(req,res)=>{
