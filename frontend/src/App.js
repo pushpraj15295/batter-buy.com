@@ -9,6 +9,7 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import AllRoutes from "./Router/AllRoutes";
 import About from "./Pages/About";
+import Bottombar from "./components/Bottombar";
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
       <Home />
       {/* <Contact /> */}
       {/* <About /> */}
-
+      <Center>
+        <Bottombar />
+      </Center>
       <Center bg="#1f1f1f" color="white">
         <Footer bg="#1f1f1f" />
       </Center>

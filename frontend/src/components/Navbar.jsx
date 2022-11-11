@@ -63,7 +63,7 @@ export default function Navebar() {
             color={useColorModeValue("gray.800", "white")}
           >
             {/* <Image src={logo} alt="Better Buy" h="20px" /> */}
-            <Text fontWeight={700}>
+            <Text fontSize="21px" fontWeight={700}>
               {" "}
               <span style={{ color: "#f4c300" }}>B</span>etter{" "}
               <span style={{ color: "#f4c300" }}>B</span>uy
@@ -76,7 +76,7 @@ export default function Navebar() {
             /> */}
           </Box>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex align="center" display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
         </Flex>
