@@ -44,6 +44,7 @@ export default function Navebar() {
         <Flex
           flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
+          // display={{ base: "flex", md: "none" }}
           display={{ base: "flex", md: "none" }}
         >
           <IconButton
