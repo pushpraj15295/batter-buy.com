@@ -293,7 +293,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "About",
+    label: "About Us",
     // children: [
     //   {
     //     label: "Explore Design Work",
@@ -333,7 +333,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
 
   {
-    label: "Contact us",
+    label: "Contact Us",
     href: "#",
   },
 ];

@@ -64,7 +64,7 @@ export default function Contact() {
                 md: "5xl",
               }}
             >
-              Contact us
+              Contact Us
             </Heading>
 
             <Stack
