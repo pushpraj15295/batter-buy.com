@@ -4,11 +4,13 @@ const dbConnect = require("./config/db");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db.js");
 const { ProductRoute, UserRoute, OAuthRoute, gitRoute, googleRoute } = require('./Routes/index');
+const cors = require("cors")
 dotenv.config();
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors())
 app.use("/user",UserRoute);
 app.use("/products",ProductRoute);
 app.use("/oauth",gitRoute);
