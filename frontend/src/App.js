@@ -22,7 +22,6 @@ function App() {
        <Link to="/resetPassword">ResetPassword</Link>
        </div>
          <AllRoutes/> */}
-<<<<<<< HEAD
       <Home />
       {/* <Contact /> */}
       {/* <About /> */}
@@ -30,9 +29,6 @@ function App() {
       <Center bg="#1f1f1f" color="white">
         <Footer bg="#1f1f1f" />
       </Center>
-=======
-         <AllRoutes/>
->>>>>>> 9c677f642a56e7c26a57657e32ba127ee99b6a3e
     </div>
   );
 }

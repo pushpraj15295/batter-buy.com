@@ -24,10 +24,19 @@ import {
 } from "@chakra-ui/icons";
 import { CgShoppingCart, CgAlbum } from "react-icons/cg";
 import logo from "../Pictures/UBORIC1-small-removebg-preview.png";
+import { setItemSession } from "../utils/sessionStorage";
+import { useDispatch } from "react-redux";
+import { SET_NAVBAR_PATH } from "../redux/path/actionTypes";
+import { setNavbarPath } from "../redux/path/actions";
+
 
 export default function Navebar() {
+  const dispatch = useDispatch();
   const { isOpen, onToggle } = useDisclosure();
-
+  const handlePath = ({ target: { name } }) => {
+    dispatch(SET_NAVBAR_PATH(name));
+    setItemSession("path", name);
+  };
   return (
     <Box w="1130px">
       <Flex
@@ -132,6 +141,12 @@ export default function Navebar() {
 }
 
 const DesktopNav = () => {
+  const dispatch = useDispatch();
+  const handlePath = ({ target: { name } }) => {
+    console.log(name)
+    dispatch(setNavbarPath(name));
+    setItemSession("path", name);
+  };
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
@@ -143,8 +158,10 @@ const DesktopNav = () => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
+                to={navItem.link}
+                name={navItem.name}
+                onClick={handlePath}
                 p={2}
-                href={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
@@ -180,10 +197,12 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, link, name, subLabel }: NavItem) => {
+
   return (
     <Link
-      href={href}
+      to={link}
+      name={name}
       role={"group"}
       display={"block"}
       p={2}
@@ -309,25 +328,32 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Shop",
-    href: "#",
+    name: "allProducts",
+    text: "All Products",
+    link: "/allProducts",
   },
   {
     label: "Categories",
     children: [
       {
         label: "Men",
-        // subLabel: "Find your dream design job",
-        href: "#",
+        name: "men",
+        text: "men",
+        link: "/men",
       },
       {
         label: "Women",
         // subLabel: "An exclusive list for contract work",
-        href: "#",
+        name: "women",
+        text: "women",
+        link: "/women",
       },
       {
         label: "Kids",
         // subLabel: "An exclusive list for contract work",
-        href: "#",
+        name: "kids",
+        text: "kids",
+        link: "/kids",
       },
     ],
   },
