@@ -22,7 +22,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { CgShoppingCart } from "react-icons/cg";
+import { CgShoppingCart, CgAlbum } from "react-icons/cg";
+import logo from "../Pictures/UBORIC1-small-removebg-preview.png";
 
 export default function Navebar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -60,7 +61,13 @@ export default function Navebar() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            Better Buy
+            {/* <Image src={logo} alt="Better Buy" h="20px" /> */}
+            <Text fontWeight={700}>
+              {" "}
+              <span style={{ color: "#f4c300" }}>B</span>etter{" "}
+              <span style={{ color: "#f4c300" }}>B</span>uy
+            </Text>
+
             {/* <Image
               src="https://i.pinimg.com/474x/22/b6/99/22b699f99e18ff9b7717b1b59c23eae9.jpg"
               alt=""
@@ -79,9 +86,18 @@ export default function Navebar() {
           direction={"row"}
           spacing={6}
         >
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <Box
+            style={{ display: "flex", alignItems: "center" }}
+            _hover={{ transform: "scale(1.2)" }}
+          >
+            <CgAlbum size="20px" style={{ heigth: "100%" }} />
+          </Box>
+          <Box
+            style={{ display: "flex", alignItems: "center" }}
+            _hover={{ transform: "scale(1.2)" }}
+          >
             <CgShoppingCart size="22px" style={{ heigth: "100%" }} />
-          </div>
+          </Box>
           <Button
             as={"a"}
             fontSize={"sm"}
@@ -177,7 +193,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: "black" }}
             fontWeight={500}
           >
             {label}
@@ -193,7 +209,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={"black"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -304,6 +320,11 @@ const NAV_ITEMS: Array<NavItem> = [
       },
       {
         label: "Women",
+        // subLabel: "An exclusive list for contract work",
+        href: "#",
+      },
+      {
+        label: "Kids",
         // subLabel: "An exclusive list for contract work",
         href: "#",
       },

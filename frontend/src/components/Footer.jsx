@@ -11,6 +11,8 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import logo from "..//Pictures/UBORIC1-small-removebg-preview.png";
+import { CgShoppingCart } from "react-icons/cg";
 
 const Logo = (props: any) => {
   return (
@@ -34,12 +36,33 @@ const Logo = (props: any) => {
     //     fill="#2F855A"
     //   /> */}
     // </svg>
-    <Image
-      boxSize="100px"
-      objectFit="cover"
-      src="https://i.pinimg.com/474x/22/b6/99/22b699f99e18ff9b7717b1b59c23eae9.jpg"
-      alt=""
-    />
+    // <Image boxSize="100px" objectFit="cover" src={logo} alt="" />
+    <Text fontSize="30px" fontWeight={700}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          gap: "5px",
+        }}
+      >
+        <div>
+          <span style={{ color: "#f4c300" }}>B</span>etter{" "}
+          <span style={{ color: "#f4c300" }}>B</span>uy
+        </div>
+        <div>
+          <CgShoppingCart size="35px" />
+        </div>
+      </div>
+      {/* <span style={{ color: "#f4c300" }}>B</span>etter{" "}
+      <span style={{ color: "#f4c300" }}>B</span>uy
+      <span>
+        <CgShoppingCart size="50px" />
+      </span>
+      <div>
+        <CgShoppingCart size="22px" />
+      </div> */}
+    </Text>
   );
 };
 

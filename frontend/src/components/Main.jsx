@@ -1,5 +1,8 @@
 import { Box, Center, Flex, Image, Square, Text } from "@chakra-ui/react";
 import React from "react";
+import one from "../Pictures/1.JPG";
+import two from "../Pictures/2.JPG";
+import three from "../Pictures/3.JPG";
 
 const Main = () => {
   return (
@@ -7,28 +10,31 @@ const Main = () => {
 
     // </div>
     <Flex color="white" justify="space-between" p="1%">
-      <Center w="32%" bg="green.500">
+      <Center w="32%">
         <Image
           w="100%"
           objectFit="fill"
-          src="https://images.livspace-cdn.com/plain/https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2022/02/09082940/cover-2.jpg"
+          src={one}
+          _hover={{ transform: "scale(1.1)" }}
           alt="Dan Abramov"
         />
       </Center>
-      <Center w="32%" bg="green.500">
+      <Center w="32%">
         <Image
           w="100%"
           objectFit="fill"
-          src="https://images.livspace-cdn.com/plain/https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2022/02/09082940/cover-2.jpg"
+          src={two}
+          _hover={{ transform: "scale(1.1)" }}
           alt="Dan Abramov"
         />
       </Center>
-      <Center w="32%" bg="green.500">
+      <Center w="32%">
         <Image
           w="100%"
           objectFit="fill"
-          src="https://images.livspace-cdn.com/plain/https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2022/02/09082940/cover-2.jpg"
+          src={three}
           alt="Dan Abramov"
+          _hover={{ transform: "scale(1.1)" }}
         />
       </Center>
     </Flex>
