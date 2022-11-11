@@ -64,7 +64,7 @@ export default function About() {
                 md: "5xl",
               }}
             >
-              About us
+              About Us
             </Heading>
 
             <Stack
