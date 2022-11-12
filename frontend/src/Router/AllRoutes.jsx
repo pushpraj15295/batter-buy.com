@@ -1,32 +1,28 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import ForgetPassword from '../Pages/ForgetPassword'
-import Home from '../Pages/Home'
-import Login from '../Pages/Login'
-import ResetPassword from '../Pages/ResetPassword'
-import Signup from '../Pages/Signup'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Allproducts from "../Pages/Allproducts";
+import { Description } from "../Pages/Description";
+import ForgetPassword from "../Pages/ForgetPassword";
+import Login from "../Pages/Login";
+import ResetPassword from "../Pages/ResetPassword";
+import Signup from "../Pages/Signup";
 
 const AllRoutes = () => {
   return (
     <>
-     <Routes>
-         <Route path="/" element={<Home/>}/>
-         <Route path="/login" element={<Login/>}/>
-         <Route path="/signup" element={<Signup/>}/>
-         <Route path="/forgetpassword" element={<ForgetPassword/>}/>
-         <Route path="/resetPassword" element={<ResetPassword/>}/>
-
-         {/* <Route path="/about" element={<About/>}/> */}
-         {/* <Route path="/shop" element={<Shop/>}/> */}
-         {/* <Route path="/categories" element={<Categories/>}/> */}
-         {/* <Route path="/contact" element={<Contact/>}/> */}
-         {/* <Route path="/cart" element={<Cart/>}/> */}
-         {/* <Route path="/product" element={<Product/>}/> */}
-         {/* <Route path="/productpage" element={<Productpage/>}/> */}
-        
-     </Routes>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/forgetpassword" element={<ForgetPassword />} />
+        <Route path="/resetPassword" element={<ResetPassword />} />
+        <Route path="/allProducts" element={<Allproducts />} />
+        <Route path="/men" element={<Allproducts />} />
+        <Route path="/women" element={<Allproducts />} />
+        <Route path="/kids" element={<Allproducts />} />
+        <Route path="/description" element={<Description />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 
-export default AllRoutes
+export default AllRoutes;
