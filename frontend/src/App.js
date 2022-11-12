@@ -9,27 +9,21 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import AllRoutes from "./Router/AllRoutes";
 import About from "./Pages/About";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   return (
     <div className="App">
-      <Center>
-        <Navebar />
+      {/* <Center> */}
+        {/* <Navebar />
       </Center>
-      {/* <div><Link to="/login">Login</Link>
-       <Link to="/signup">signup</Link>
-       <Link to="/forgetpassword">ForgetPassword</Link>
-       <Link to="/resetPassword">ResetPassword</Link>
-       </div>
-         <AllRoutes/> */}
       <Home />
-      {/* <Contact /> */}
-      {/* <About /> */}
 
       <Center bg="#1f1f1f" color="white">
         <Footer bg="#1f1f1f" />
       </Center>
-      <AllRoutes />
+      <AllRoutes /> */}
+      <Checkout/>
     </div>
   );
 }
