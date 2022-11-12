@@ -8,19 +8,26 @@ import {
   InputGroup,
   InputRightElement,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from "../redux/auth/auth.actions";
+import { setToast } from "../redux/products/actionTypes";
+import { getItemSession } from "../utils/sessionStorage";
 const init = {
   email: "",
   password: "",
 };
 const Login = () => {
+  const token = useSelector(store=>store.auth.token);
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState(init);
-
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const navigate = useNavigate()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCreds({
@@ -31,9 +38,17 @@ const Login = () => {
 
   const handleSubmit=(e) => {
      e.preventDefault();
-     console.log("cred", creds)
-
-  }
+     dispatch(login(creds));
+     if(token==='') 
+     {
+      setToast(toast, "Unable to login to account", "error", 1000);
+     }
+     else{
+       setToast(toast, "Login Success", "success", 1000); 
+       navigate("/")
+    }
+      
+  };
 
   return (
     <Flex>

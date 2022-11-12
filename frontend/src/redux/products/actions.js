@@ -21,11 +21,19 @@ axios.defaults.baseURL = "http://localhost:8080";
 
 export const getRequest = (path) => async (dispatch) => {
   try {
+    console.log('hi')
     dispatch(getDataLoading());
-    const { data } = await axios.get(path);
-    dispatch(getDataSuccess(data));
+    const {data} = await axios.get(path,config);
+    console.log(data)
+    dispatch(getDataSuccess(data.products));
   } catch (err) {
     console.log(err);
     dispatch(getDataError());
+  }
+};
+
+const config = {
+  headers:{
+    Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pcm1hbEBnbWFpbC5jb20iLCJpZCI6IjYzNmQyOTdlYmY1YzRjMTkyMzQxMjMyZSIsImlhdCI6MTY2ODI0MjI4OCwiZXhwIjoxNjY4NDE1MDg4fQ.yivYIeosCltq0rWnypg7HczVrjgjrxi8zl2nem4U1Zo"
   }
 };

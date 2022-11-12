@@ -7,7 +7,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -24,7 +23,10 @@ import {
 } from "@chakra-ui/icons";
 import { CgShoppingCart, CgAlbum } from "react-icons/cg";
 import logo from "../Pictures/UBORIC1-small-removebg-preview.png";
-
+import {Link} from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { setNavbarPath } from "../redux/path/actions";
+import { setItemSession } from "../utils/sessionStorage";
 export default function Navebar() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -106,7 +108,7 @@ export default function Navebar() {
             variant={"link"}
             href={"#"}
           >
-            Sign In
+            <Link to={'/login'}>Sign In</Link>
           </Button>
           <Button
             display={{ base: "none", md: "inline-flex" }}
@@ -119,7 +121,7 @@ export default function Navebar() {
               bg: "gray",
             }}
           >
-            Sign Up
+            <Link to={'/signup'} >Sign Up</Link>
           </Button>
         </Stack>
       </Flex>
@@ -135,7 +137,11 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
-
+  const dispatch = useDispatch();
+  const handlePath = ({ target: { name } }) => {
+    dispatch(setNavbarPath(name));
+    setItemSession("path", name);
+  };
   return (
     <Stack direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
@@ -153,6 +159,7 @@ const DesktopNav = () => {
                   color: linkHoverColor,
                 }}
               >
+                {/* This is the label  */}
                 {navItem.label}
               </Link>
             </PopoverTrigger>
@@ -167,8 +174,15 @@ const DesktopNav = () => {
                 minW={"sm"}
               >
                 <Stack>
-                  {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
+                  {subRoutes.map((child,i) => (
+                    <Link
+                    onClick={handlePath}
+                    name={child}
+                    to={`/${child}`} 
+                    key={i}
+                    >
+                      {child}
+                    </Link>
                   ))}
                 </Stack>
               </PopoverContent>
@@ -180,7 +194,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
       href={href}
@@ -231,7 +245,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, children, href }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -284,14 +298,14 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
+// interface NavItem {
+//   label: string;
+//   subLabel?: string;
+//   children?: Array<NavItem>;
+//   href?: string;
+// }
 
-const NAV_ITEMS: Array<NavItem> = [
+const NAV_ITEMS= [
   {
     label: "About Us",
     // children: [
@@ -337,3 +351,11 @@ const NAV_ITEMS: Array<NavItem> = [
     href: "#",
   },
 ];
+
+const mainRoutes = ['aboutus', 'shop', ]
+
+const subRoutes = [
+  'men',
+  'women',
+  'kids'
+]
