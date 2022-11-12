@@ -3,14 +3,9 @@ import React from "react";
 import Add from "../components/Add";
 import Add2 from "../components/Add2";
 import Add3 from "../components/Add3";
-import Bottombar from "../components/Bottombar";
 import Carousel from "../components/Carousel";
 import Discount from "../components/Discount";
-// import Carousel from "../components/Carousel";
-import Footer from "../components/Footer";
-// import Footer2 from "../components/Footer2";
 import Main from "../components/Main";
-import Navebar from "../components/Navbar";
 import Textbox from "../components/Textbox";
 import Textbox2 from "../components/Textbox2";
 

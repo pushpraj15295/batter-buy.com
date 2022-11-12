@@ -3,14 +3,9 @@ import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Flex, Image, I
 import React, { useEffect, useState } from 'react'
 import {
     Table,
-    Thead,
-    Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
-    TableCaption,
-    TableContainer,
   } from '@chakra-ui/react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';

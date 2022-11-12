@@ -13,7 +13,6 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
-  Image,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -22,7 +21,6 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { CgShoppingCart, CgAlbum } from "react-icons/cg";
-import logo from "../Pictures/UBORIC1-small-removebg-preview.png";
 import {Link} from "react-router-dom"
 import { useDispatch } from "react-redux";
 import { setNavbarPath } from "../redux/path/actions";
