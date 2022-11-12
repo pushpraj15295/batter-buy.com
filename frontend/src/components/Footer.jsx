@@ -3,18 +3,15 @@ import { ReactNode } from "react";
 import {
   Box,
   Container,
-  Image,
-  Img,
   Link,
   SimpleGrid,
   Stack,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import logo from "..//Pictures/UBORIC1-small-removebg-preview.png";
 import { CgShoppingCart } from "react-icons/cg";
 
-const Logo = (props: any) => {
+const Logo = (props) => {
   return (
     // <svg
     //   height={32}

@@ -6,18 +6,15 @@ import {
   FormControl,
   FormLabel,
   InputGroup,
-  InputRightElement,
   Text,
 } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 
 const init = {
   email: "",
 };
 const ForgetPassword = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState(init);
 
   const handleChange = (e) => {

@@ -1,16 +1,17 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Cart from "../Pages/Cart";
-import ForgetPassword from "../Pages/ForgetPassword";
-import Home from "../Pages/Home";
-import Login from "../Pages/Login";
-import ResetPassword from "../Pages/ResetPassword";
-import Signup from "../Pages/Signup";
-import Wishlist from "../Pages/Wishlist";
-import Allproducts from "../Pages/Allproducts";
-import { Description } from "../Pages/Description";
-import About from "../Pages/About";
-import Contact from "../Pages/Contact";
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Cart from '../Pages/Cart'
+import ForgetPassword from '../Pages/ForgetPassword'
+import Home from '../Pages/Home'
+import Login from '../Pages/Login'
+import ResetPassword from '../Pages/ResetPassword'
+import Signup from '../Pages/Signup'
+import Wishlist from '../Pages/Wishlist'
+import Allproducts from "../Pages/Allproducts"
+import {Description} from "../Pages/Description"
+import About from "../Pages/About"
+import Contact from "../Pages/Contact"
+import Checkout from "../Pages/Checkout"
 import Success from '../Pages/Success'
 const AllRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AllRoutes = () => {
         <Route path="/aboutus" element={<About />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/checkout" element={<Checkout/>} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/allProducts" element={<Allproducts />} />

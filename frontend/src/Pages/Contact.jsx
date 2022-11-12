@@ -18,9 +18,9 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
-import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from "react-icons/bs";
+import { BsPerson} from "react-icons/bs";
 import { IoMdAppstore, IoIosAppstore, IoMdMail } from "react-icons/io";
-import { MdEmail, MdOutlineEmail } from "react-icons/md";
+import { MdOutlineEmail } from "react-icons/md";
 
 const confetti = {
   light: {
