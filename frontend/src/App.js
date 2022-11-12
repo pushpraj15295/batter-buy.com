@@ -1,5 +1,6 @@
 import { Center } from "@chakra-ui/react";
 import "./App.css";
+import Bottombar from "./components/Bottombar";
 import Footer from "./components/Footer";
 import Navebar from "./components/Navbar";
 import Home from "./Pages/Home";
@@ -13,12 +14,13 @@ function App() {
       <Center>
         <Navebar />
       </Center>
-      <Home />
-
+      <AllRoutes />
+      <Center>
+        <Bottombar />
+      </Center>
       <Center bg="#1f1f1f" color="white">
         <Footer bg="#1f1f1f" />
       </Center>
-      <AllRoutes />
     </div>
   );
 }

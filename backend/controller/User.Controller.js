@@ -6,7 +6,7 @@ const loginController = async (email, password, jwt, req, res, userModel) => {
     { email: user.email, id: user._id },
     "MAIN_SECRET",
     {
-      expiresIn: "3000 seconds",
+      expiresIn: "2 days",
     }
   );
   const refreshToken = jwt.sign(

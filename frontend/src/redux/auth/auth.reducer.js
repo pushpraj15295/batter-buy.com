@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setItemSession } from "../../utils/sessionStorage";
 import {
   AUTH_LOGIN_LOADING,
   AUTH_LOGIN_SUCCESS,
@@ -9,7 +10,7 @@ import {
 
 // 
 
-let token = localStorage.getItem("token")
+// let token = ''
 
 //
 
@@ -17,7 +18,7 @@ let init = {
   loading: false,
   error: false,
   success: false,
-  token: token,
+  token: '',
 };
 
 //
@@ -33,16 +34,13 @@ export const authReducer = (state = init, { type, payload }) => {
       };
     }
     case AUTH_LOGIN_SUCCESS: {
-      if (payload.token) {
-        localStorage.setItem("token", payload.token);
-      }
-
+      console.log(payload,'reducer');
       return {
         ...state,
         loading: false,
         error: false,
         success:true,
-        token: payload.token,
+        token: payload,
       };
     }
     case AUTH_LOGIN_ERROR: {
@@ -54,7 +52,7 @@ export const authReducer = (state = init, { type, payload }) => {
       };
     }
     case AUTH_LOGOUT: {
-        localStorage.removeItem("token")
+        sessionStorage.removeItem("token")
       return {
         ...state,
         loading: false,

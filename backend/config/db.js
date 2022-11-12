@@ -1,11 +1,15 @@
 //**********************************************************************************  mongo Databse connection  */
+require('dotenv').config()
 
 const mongoose = require("mongoose");
+const url = process.env.MONGO_URL
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/betterbuy");
-    console.log(`Database connected`);
+    return mongoose.connect(url,
+      { useNewUrlParser: true, useUnifiedTopology: true }, err => {
+          console.log('Database Connected')
+      });
   } catch (e) {
     console.log(e.message);
   }

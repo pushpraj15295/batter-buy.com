@@ -1,7 +1,9 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Textbox2 = () => {
+  const navigate = useNavigate()
   return (
     <>
       {/* <Box maxW={"6xl"} textAlign="justify" m="50px">
@@ -79,6 +81,7 @@ const Textbox2 = () => {
             fontSize="13px"
             borderRadius="3px"
             marginTop="20px"
+            onClick={()=>navigate("/allProducts")}
           >
             SHOP NOW
           </Button>

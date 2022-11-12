@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setItemSession } from "../../utils/sessionStorage";
 import {
   AUTH_LOGIN_LOADING,
   AUTH_LOGIN_SUCCESS,
@@ -16,12 +17,12 @@ export const login = (creds) => async (dispatch) => {
   dispatch({ type: AUTH_LOGIN_LOADING });
   try {
     let response = await axios.post(
-      "https://evening-taiga-24056.herokuapp.com/user/login",
+      "http://localhost:8080/user/login",
       creds
-    );
-
-    dispatch({ type: AUTH_LOGIN_SUCCESS, payload: response.data });
-
+    )
+    setItemSession('token', response.data.mToken);
+    dispatch({ type: AUTH_LOGIN_SUCCESS, payload: response.data.mToken });
+    
     return response.data; // not imp
   } catch {
     dispatch({ type: AUTH_LOGIN_ERROR });
@@ -33,12 +34,11 @@ export const signup = (creds) => async (dispatch) => {
   dispatch({ type: AUTH_LOGIN_LOADING });
   try {
     let response = await axios.post(
-      "https://evening-taiga-24056.herokuapp.com/user/signup",
+      "http://localhost:8080/user/signup",
       creds
     );
-
+    console.log(response);
     dispatch({ type: AUTH_LOGIN_SUCCESS, payload: response.data });
-
     return response.data; // not imp
   } catch {
     dispatch({ type: AUTH_LOGIN_ERROR });

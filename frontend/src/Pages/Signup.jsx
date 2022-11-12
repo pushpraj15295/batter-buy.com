@@ -8,23 +8,31 @@ import {
   InputGroup,
   InputRightElement,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import {AiOutlineGithub} from 'react-icons/ai'
 import {MdEmail} from "react-icons/md"
+import { useDispatch, useSelector } from "react-redux";
+import { signup } from "../redux/auth/auth.actions";
+import { setToast } from "../redux/products/actionTypes";
 
+import axios from 'axios'
 const init = {
   name: "",
   email: "",
   password: "",
 };
 const Signup = () => {
+  const store = useSelector(store=>store.auth);
+  const toast = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState(init);
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCreds({
@@ -35,8 +43,16 @@ const Signup = () => {
 
   const handleSubmit=(e) => {
      e.preventDefault();
-     console.log("cred", creds)
-
+     axios.post("http://localhost:8080/user/signup", creds).then(()=>{
+       setToast(toast, "User Created Successfully, Redirecting to login", "success", 1000);
+     }).then(()=>{
+      setTimeout(()=>{
+        navigate("/login");
+      },1500)
+     })
+     .catch((e)=>{
+       setToast(toast, "Unable to create user account", "error", 1000);
+     })
   }
 
   return (
