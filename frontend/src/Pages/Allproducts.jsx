@@ -17,7 +17,6 @@ function Allproducts() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setItemSession("path", "allProducts");
     dispatch(getRequest(path));
   }, [path]);
 

@@ -20,8 +20,8 @@ function App() {
        <Link to="/signup">signup</Link>
        <Link to="/forgetpassword">ForgetPassword</Link>
        <Link to="/resetPassword">ResetPassword</Link>
-       </div>
-         <AllRoutes/> */}
+       </div> */}
+         <AllRoutes/>
       <Home />
       {/* <Contact /> */}
       {/* <About /> */}

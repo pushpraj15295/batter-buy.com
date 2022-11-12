@@ -16,7 +16,8 @@ export const Description = () => {
     const data = getItemSession("singleProduct");
     const { title, gender, description, category, price, size, color, rating, img } = data;
     const [mySize, setMySize] = useState(false);
-    const token = useSelector((state) => state.authReducer.token);
+    //const token = useSelector((state) => state.authReducer.token);
+    const token="1234567890"
     const toast = useToast();
     const navigate = useNavigate();
     const dispatch = useDispatch();
