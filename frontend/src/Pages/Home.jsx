@@ -1,4 +1,4 @@
-import { Box, Center, Grid } from "@chakra-ui/react";
+import { Box, Center, Grid, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Add from "../components/Add";
 import Add2 from "../components/Add2";
@@ -16,11 +16,23 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [datas, setdata] = useState([]);
+  const [datas2, setdata2] = useState([]);
+  const [datas3, setdata3] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("http://localhost:8080/allProducts")
       .then((data) => setdata(data.data.products))
+      .catch((e) => console.log(e));
+    /////////
+    axios
+      .get("http://localhost:8080/allProducts")
+      .then((data) => setdata2(data.data.products))
+      .catch((e) => console.log(e));
+    //////
+    axios
+      .get("http://localhost:8080/allProducts")
+      .then((data) => setdata3(data.data.products))
       .catch((e) => console.log(e));
   }, []);
   console.log(datas);
@@ -36,8 +48,18 @@ const Home = () => {
       <Carousel />
       <Main />
 
-      <Add />
+      <Add3 />
+      {/*  */}
       <Box minH={"800px"}>
+        <Text
+          textAlign="center"
+          fontSize="32px"
+          fontWeight="600"
+          lineHeight="48px"
+          margin="30px"
+        >
+          Best Selling Footwear
+        </Text>
         <Grid
           gap={[2, 4]}
           p={["10px", "10px", "20px", "20px", "20px"]}
@@ -64,7 +86,83 @@ const Home = () => {
           })}
         </Grid>
       </Box>
-      <Add3 />
+      {/*  */}
+      <Add />
+      {/*  */}
+      <Box minH={"800px"}>
+        <Text
+          textAlign="center"
+          fontSize="32px"
+          fontWeight="600"
+          lineHeight="48px"
+          margin="30px"
+        >
+          Best Selling Products
+        </Text>
+        <Grid
+          gap={[2, 4]}
+          p={["10px", "10px", "20px", "20px", "20px"]}
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(4, 1fr)",
+          ]}
+        >
+          {datas2?.map((product, index) => {
+            if (index <= 3) {
+              return (
+                <Products
+                  {...product}
+                  key={index}
+                  onClick={() => {
+                    navigate("/allProducts");
+                  }}
+                />
+              );
+            }
+          })}
+        </Grid>
+      </Box>
+      {/*  */}
+      <Box minH={"800px"}>
+        <Text
+          textAlign="center"
+          fontSize="32px"
+          fontWeight="600"
+          lineHeight="48px"
+          margin="30px"
+        >
+          Best Selling Products
+        </Text>
+        <Grid
+          gap={[2, 4]}
+          p={["10px", "10px", "20px", "20px", "20px"]}
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(4, 1fr)",
+          ]}
+        >
+          {datas3?.map((product, index) => {
+            if (index <= 3) {
+              return (
+                <Products
+                  {...product}
+                  key={index}
+                  onClick={() => {
+                    navigate("/allProducts");
+                  }}
+                />
+              );
+            }
+          })}
+        </Grid>
+      </Box>
+      {/*  */}
       <Center>
         <Textbox />
       </Center>
