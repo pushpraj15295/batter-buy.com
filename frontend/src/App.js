@@ -3,10 +3,7 @@ import "./App.css";
 import Bottombar from "./components/Bottombar";
 import Footer from "./components/Footer";
 import Navebar from "./components/Navbar";
-import Home from "./Pages/Home";
 import AllRoutes from "./Router/AllRoutes";
-
-
 
 function App() {
   return (
@@ -15,6 +12,7 @@ function App() {
         <Navebar />
       </Center>
       <AllRoutes />
+
       <Center>
         <Bottombar />
       </Center>

@@ -12,14 +12,15 @@ import {Description} from "../Pages/Description"
 import About from "../Pages/About"
 import Contact from "../Pages/Contact"
 import Checkout from "../Pages/Checkout"
+import Success from '../Pages/Success'
 const AllRoutes = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/aboutus" element={<About/>} />
-        <Route path="/contactus" element={<Contact/>} />
+        <Route path="/aboutus" element={<About />} />
+        <Route path="/contactus" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/checkout" element={<Checkout/>} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
@@ -29,8 +30,9 @@ const AllRoutes = () => {
         <Route path="/women" element={<Allproducts />} />
         <Route path="/kids" element={<Allproducts />} />
         <Route path="/description" element={<Description />} />
-        <Route path="/wishlist" element={<Wishlist/>}/>
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </>
   );
