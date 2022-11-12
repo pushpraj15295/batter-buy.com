@@ -1,5 +1,6 @@
 import { Center } from "@chakra-ui/react";
 import "./App.css";
+import Bottombar from "./components/Bottombar";
 import Footer from "./components/Footer";
 import Navebar from "./components/Navbar";
 import Home from "./Pages/Home";
