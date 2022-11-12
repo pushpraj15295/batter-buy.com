@@ -291,8 +291,8 @@ const Checkout = () => {
 
               <Button
                 width="100%"
-                color="black"
-                backgroundColor="rgb(60,193,1)"
+                color="white"
+                backgroundColor="black"
                 onClick={onOpen}
               >
                 Place order

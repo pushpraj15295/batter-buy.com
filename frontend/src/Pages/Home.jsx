@@ -19,7 +19,7 @@ const Home = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:8080/allProducst")
+      .get("http://localhost:8080/allProducts")
       .then((data) => setdata(data.data.products))
       .catch((e) => console.log(e));
   }, []);
@@ -50,7 +50,7 @@ const Home = () => {
           ]}
         >
           {datas?.map((product, index) => {
-            if (index >= 3) {
+            if (index <= 3) {
               return (
                 <Products
                   {...product}
