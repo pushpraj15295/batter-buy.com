@@ -6,9 +6,9 @@ const connectDB = require("./config/db.js");
 const { ProductRoute, UserRoute, OAuthRoute, gitRoute, googleRoute } = require('./Routes/index');
 dotenv.config();
 const app = express();
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.set("view engine", "ejs");
 app.use("/user",UserRoute);
 app.use("/products",ProductRoute);
 app.use("/oauth",gitRoute);
@@ -19,6 +19,6 @@ connectDB();
 
 const port = process.env.PORT || 8080;
 app.listen(port,async () => {
-  await dbConnect()
+  await dbConnect();
   console.log("server running on port : http://localhost:8080");
 });

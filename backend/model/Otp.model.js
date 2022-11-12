@@ -1,8 +1,8 @@
-//******************************************************************************************OTP model + schema */
+//******************************************************************************************profilepic model + schema */
 const { Schema, model } = require("mongoose");
-const otpSchema = new Schema({
-  otp: { type: String },
-  userId: { type: Schema.Types.ObjectId, ref: "user", required: true },
+const profilepicSchema = new Schema({
+  name: { type: String },
+  image: { type: Buffer, contentType: String },
 });
-const otpModel = model("otp", otpSchema);
-module.exports = otpModel;
+const profilepicModel = model("profilepic", profilepicSchema);
+module.exports = profilepicModel;

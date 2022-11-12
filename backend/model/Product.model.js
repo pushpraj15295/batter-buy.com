@@ -2,13 +2,15 @@
 
 const { model, Schema } = require("mongoose");
 const productSchema = new Schema({
-  name: { type: String, required: true },
-  quantity: { type: Number, required: true },
-  categories: { type: String },
+  title: { type: String, required: true },
   gender: { type:String, enum:["male","female"] },
+  description: { type:String },
+  categories: { type: String },
   price: { type: Number, required: true },
+  size:[{ type:String }],
+  color: {type:String},
   rating: { type: Number, min: 0, max: 5 },
-  description: { type: String },
+  img:[{ type:String }]
 });
 const productModel = model("product", productSchema);
 module.exports = productModel;
