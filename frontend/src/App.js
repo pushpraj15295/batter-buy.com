@@ -9,21 +9,22 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import AllRoutes from "./Router/AllRoutes";
 import About from "./Pages/About";
-import Checkout from "./Pages/Checkout";
+import Bottombar from "./components/Bottombar";
 
 function App() {
   return (
     <div className="App">
-      {/* <Center> */}
-        {/* <Navebar />
+      <Center>
+        <Navebar />
       </Center>
-      <Home />
 
+      <AllRoutes />
+      <Center>
+        <Bottombar />
+      </Center>
       <Center bg="#1f1f1f" color="white">
         <Footer bg="#1f1f1f" />
       </Center>
-      <AllRoutes /> */}
-      <Checkout/>
     </div>
   );
 }

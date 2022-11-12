@@ -1,3 +1,7 @@
-.App{
-   color:black;
+.App {
+  color: black;
+}
+
+* {
+  font-family: "Roboto", Sans-serif;
 }
