@@ -1,5 +1,3 @@
-import axios from "axios";
-import { setItemSession } from "../../utils/sessionStorage";
 import {
   AUTH_LOGIN_LOADING,
   AUTH_LOGIN_SUCCESS,
