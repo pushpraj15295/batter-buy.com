@@ -17,22 +17,14 @@ function App() {
       <Center>
         <Navebar />
       </Center>
-      {/* <div><Link to="/login">Login</Link>
-       <Link to="/signup">signup</Link>
-       <Link to="/forgetpassword">ForgetPassword</Link>
-       <Link to="/resetPassword">ResetPassword</Link>
-       </div>
-         <AllRoutes/> */}
-      <Home />
-      {/* <Contact /> */}
-      {/* <About /> */}
+
+      <AllRoutes />
       <Center>
         <Bottombar />
       </Center>
       <Center bg="#1f1f1f" color="white">
         <Footer bg="#1f1f1f" />
       </Center>
-      <AllRoutes />
     </div>
   );
 }
