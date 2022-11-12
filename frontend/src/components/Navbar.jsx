@@ -65,11 +65,13 @@ export default function Navebar() {
             color={useColorModeValue("gray.800", "white")}
           >
             {/* <Image src={logo} alt="Better Buy" h="20px" /> */}
-            <Text fontSize="21px" fontWeight={700}>
-              {" "}
-              <span style={{ color: "#f4c300" }}>B</span>etter{" "}
-              <span style={{ color: "#f4c300" }}>B</span>uy
-            </Text>
+            <Link to={"/"}>
+              <Text fontSize="21px" fontWeight={700}>
+                {" "}
+                <span style={{ color: "#f4c300" }}>B</span>etter{" "}
+                <span style={{ color: "#f4c300" }}>B</span>uy
+              </Text>
+            </Link>
 
             {/* <Image
               src="https://i.pinimg.com/474x/22/b6/99/22b699f99e18ff9b7717b1b59c23eae9.jpg"
@@ -93,13 +95,13 @@ export default function Navebar() {
             style={{ display: "flex", alignItems: "center" }}
             _hover={{ transform: "scale(1.2)" }}
           >
-            <CgAlbum size="20px" style={{ heigth: "100%" }} />
+            <Link to={'/wishlist'} ><CgAlbum size="20px" style={{ heigth: "100%" }} /></Link>
           </Box>
           <Box
             style={{ display: "flex", alignItems: "center" }}
             _hover={{ transform: "scale(1.2)" }}
           >
-            <CgShoppingCart size="22px" style={{ heigth: "100%" }} />
+            <Link to={'/cart'} ><CgShoppingCart size="22px" style={{ heigth: "100%" }} /></Link>
           </Box>
           <Button
             as={"a"}
@@ -144,7 +146,7 @@ const DesktopNav = () => {
   };
   return (
     <Stack direction={"row"} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS.map((navItem,i) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
@@ -158,6 +160,7 @@ const DesktopNav = () => {
                   textDecoration: "none",
                   color: linkHoverColor,
                 }}
+                to={`${mainRoutes[i]}`}
               >
                 {/* This is the label  */}
                 {navItem.label}
@@ -352,7 +355,7 @@ const NAV_ITEMS= [
   },
 ];
 
-const mainRoutes = ['aboutus', 'shop', ]
+const mainRoutes = ['aboutus', 'allProducts', 'allProducts', 'contactus' ]
 
 const subRoutes = [
   'men',
