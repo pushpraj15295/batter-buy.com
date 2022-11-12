@@ -21,7 +21,7 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { CgShoppingCart, CgAlbum } from "react-icons/cg";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setNavbarPath } from "../redux/path/actions";
 import { setItemSession } from "../utils/sessionStorage";
@@ -68,6 +68,11 @@ export default function Navebar() {
                 {" "}
                 <span style={{ color: "#f4c300" }}>B</span>etter{" "}
                 <span style={{ color: "#f4c300" }}>B</span>uy
+                {/* <CgShoppingCart
+                  display="inline"
+                  size="22px"
+                  style={{ heigth: "100%" }}
+                /> */}
               </Text>
             </Link>
 
@@ -93,13 +98,17 @@ export default function Navebar() {
             style={{ display: "flex", alignItems: "center" }}
             _hover={{ transform: "scale(1.2)" }}
           >
-            <Link to={'/wishlist'} ><CgAlbum size="20px" style={{ heigth: "100%" }} /></Link>
+            <Link to={"/wishlist"}>
+              <CgAlbum size="20px" style={{ heigth: "100%" }} />
+            </Link>
           </Box>
           <Box
             style={{ display: "flex", alignItems: "center" }}
             _hover={{ transform: "scale(1.2)" }}
           >
-            <Link to={'/cart'} ><CgShoppingCart size="22px" style={{ heigth: "100%" }} /></Link>
+            <Link to={"/cart"}>
+              <CgShoppingCart size="22px" style={{ heigth: "100%" }} />
+            </Link>
           </Box>
           <Button
             as={"a"}
@@ -108,7 +117,7 @@ export default function Navebar() {
             variant={"link"}
             href={"#"}
           >
-            <Link to={'/login'}>Sign In</Link>
+            <Link to={"/login"}>Sign In</Link>
           </Button>
           <Button
             display={{ base: "none", md: "inline-flex" }}
@@ -121,7 +130,7 @@ export default function Navebar() {
               bg: "gray",
             }}
           >
-            <Link to={'/signup'} >Sign Up</Link>
+            <Link to={"/signup"}>Sign Up</Link>
           </Button>
         </Stack>
       </Flex>
@@ -144,7 +153,7 @@ const DesktopNav = () => {
   };
   return (
     <Stack direction={"row"} spacing={4}>
-      {NAV_ITEMS.map((navItem,i) => (
+      {NAV_ITEMS.map((navItem, i) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
@@ -175,12 +184,12 @@ const DesktopNav = () => {
                 minW={"sm"}
               >
                 <Stack>
-                  {subRoutes.map((child,i) => (
+                  {subRoutes.map((child, i) => (
                     <Link
-                    onClick={handlePath}
-                    name={child}
-                    to={`/${child}`} 
-                    key={i}
+                      onClick={handlePath}
+                      name={child}
+                      to={`/${child}`}
+                      key={i}
                     >
                       {child}
                     </Link>
@@ -306,7 +315,7 @@ const MobileNavItem = ({ label, children, href }) => {
 //   href?: string;
 // }
 
-const NAV_ITEMS= [
+const NAV_ITEMS = [
   {
     label: "About Us",
     // children: [
@@ -353,10 +362,6 @@ const NAV_ITEMS= [
   },
 ];
 
-const mainRoutes = ['aboutus', 'allProducts', 'allProducts', 'contactus' ]
+const mainRoutes = ["aboutus", "allProducts", "allProducts", "contactus"];
 
-const subRoutes = [
-  'men',
-  'women',
-  'kids'
-]
+const subRoutes = ["men", "women", "kids"];
