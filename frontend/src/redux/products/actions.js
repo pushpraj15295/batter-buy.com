@@ -24,7 +24,7 @@ export const getRequest = (path) => async (dispatch) => {
     console.log('hi')
     dispatch(getDataLoading());
     const {data} = await axios.get(path,config);
-    console.log(data)
+    console.log(data.products)
     dispatch(getDataSuccess(data.products));
   } catch (err) {
     console.log(err);
