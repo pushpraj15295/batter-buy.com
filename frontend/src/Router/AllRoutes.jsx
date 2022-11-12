@@ -11,6 +11,7 @@ import Allproducts from "../Pages/Allproducts"
 import {Description} from "../Pages/Description"
 import About from "../Pages/About"
 import Contact from "../Pages/Contact"
+import Checkout from "../Pages/Checkout"
 const AllRoutes = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const AllRoutes = () => {
         <Route path="/aboutus" element={<About/>} />
         <Route path="/contactus" element={<Contact/>} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/checkout" element={<Checkout/>} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/allProducts" element={<Allproducts />} />
