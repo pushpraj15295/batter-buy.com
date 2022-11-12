@@ -9,6 +9,7 @@ import { useState } from "react";
 // import { addToFavouriteRequest } from "../../redux/features/favourite/actions";
 import { useNavigate } from "react-router-dom";
 import { setToast } from "../redux/products/actionTypes";
+import axios from "axios";
 
 
 export const Description = () => {
@@ -16,19 +17,27 @@ export const Description = () => {
     const data = getItemSession("singleProduct");
     const { title, gender, description, category, price, size, color, rating, img } = data;
     const [mySize, setMySize] = useState(false);
-    //const token = useSelector((state) => state.authReducer.token);
-    const token="1234567890"
+    const token = useSelector((state) => state.auth.token);
     const toast = useToast();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-
+    console.log(data)
+    const arr = JSON.parse(localStorage.getItem("cart"))||[];
     const handleAddToCart = () => {
         if (mySize === false) {
             setToast(toast, "Please select a Size", "error");
         } else {
             const payload = { ...data, size: mySize, quantity: 1 };
             //dispatch(addToCartRequest(payload, toast));
+            axios.patch("http://localhost:8080/user/userCart",data,{
+                headers:{
+                    Authorization: token
+                }
+            }).then(()=>{
+                setToast(toast, "Product Added to the cart", "success",1000);
+            })
+            arr.push(data)
+            localStorage.setItem("cart", JSON.stringify(arr));
         }
     };
 

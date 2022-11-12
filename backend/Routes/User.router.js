@@ -1,6 +1,6 @@
 //******************************************************************************************************User route */
 const express = require("express");
-const { userModel, blacklistModel, otpModel } = require("../model/");
+const { userModel, blacklistModel, otpModel, productModel } = require("../model/");
 const jwt = require("jsonwebtoken");
 const { loginController, signupController, refreshController } = require("../controller/");
 const imageModel = require("../model/ProfilePic.model")
@@ -112,16 +112,36 @@ app.post("/update-password", async (req, res) => {
     }
 });
 
+app.get("/cartItems", async(req,res)=>{
+    const token = req.headers.authorization;
+    try{
+        const verify = jwt.verify(token, "MAIN_SECRET")
+        const data = await userModel.find({_id:verify.id},{cart:1});
+        res.send(data);
+    }catch(e){
+        res.send(e.message);
+    }
+})
+
 app.patch("/userCart",async(req,res)=>{
     const mToken = req.headers.authorization;
     console.log(req.headers.authorization)
     try{
         const verify = jwt.verify(mToken,"MAIN_SECRET" );
-        const newCartItem = await userModel.updateOne({_id:verify.id}, {$set:{ cart: req.body._id }});
+        const newCartItem = await userModel.updateOne({_id:verify.id}, {$push:{ cart: req.body }});
         res.send(newCartItem);
     }catch(e){
         res.send("/login")
     }
 });
+
+app.delete("/deleteCartItem", async(req,res)=>{
+    try{
+        const item = await userModel.updateOne({_id:req.body._id}, {$pull: { cart: req.body._id }})
+        res.send("deleted Successfully");
+    }catch(e){
+        res.send(e.message);
+    }
+})
 
 module.exports = app;

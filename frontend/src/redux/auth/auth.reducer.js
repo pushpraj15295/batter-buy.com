@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setItemSession } from "../../utils/sessionStorage";
+import { getItemSession, setItemSession } from "../../utils/sessionStorage";
 import {
   AUTH_LOGIN_LOADING,
   AUTH_LOGIN_SUCCESS,
@@ -18,7 +18,7 @@ let init = {
   loading: false,
   error: false,
   success: false,
-  token: '',
+  token: getItemSession('token')||'',
 };
 
 //
