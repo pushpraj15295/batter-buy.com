@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Image, Square, Text } from "@chakra-ui/react";
+import { Center, Flex, Image } from "@chakra-ui/react";
 import React from "react";
 import one from "../Pictures/1.JPG";
 import two from "../Pictures/2.JPG";

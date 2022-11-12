@@ -56,7 +56,7 @@ function Allproducts() {
               "repeat(4, 1fr)",
             ]}
           >
-            {products.map((product, index) => (
+            {products?.map((product, index) => (
               <Products
                 {...product}
                 key={index}

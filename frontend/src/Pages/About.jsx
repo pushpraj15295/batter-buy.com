@@ -1,27 +1,17 @@
 import {
   Box,
-  Button,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
-  IconButton,
   Image,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Link,
   Stack,
-  Textarea,
-  Tooltip,
   useClipboard,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
-import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from "react-icons/bs";
-import { IoMdAppstore, IoIosAppstore, IoMdMail } from "react-icons/io";
-import { MdEmail, MdOutlineEmail } from "react-icons/md";
+// import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from "react-icons/bs";
+// import { IoMdAppstore, IoIosAppstore, IoMdMail } from "react-icons/io";
+// import { MdEmail, MdOutlineEmail } from "react-icons/md";
 import pic from "../Pictures/about.JPG";
 
 const confetti = {
