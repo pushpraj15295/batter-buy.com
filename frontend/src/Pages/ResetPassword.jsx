@@ -11,15 +11,17 @@ import {
 } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const init = {
-  password: "",
-  matchpassword:""
+  otp: "",
+  newpassword:""
 };
 const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState(init);
+const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,8 +33,8 @@ const ResetPassword = () => {
 
   const handleSubmit=(e) => {
      e.preventDefault();
-     console.log("cred", creds)
-
+     console.log("update pass", creds)
+   navigate("/")
   }
 
   return (
@@ -45,11 +47,11 @@ const ResetPassword = () => {
           <br />
           <br />
           <FormControl isRequired>
-            <FormLabel>Password</FormLabel>
+            <FormLabel>OTP</FormLabel>
             <InputGroup>
               <Input
-                type={showPassword ? "text" : "password"}
-                name="password"
+                type={showPassword ? "number" : "password"}
+                name="otp"
                 onChange={handleChange}
                 borderRadius="none"
                 _hover={{ border: "1px solid black" }}
@@ -68,11 +70,11 @@ const ResetPassword = () => {
           </FormControl>
           <br />
           <FormControl isRequired>
-            <FormLabel>Re Enter Password</FormLabel>
+            <FormLabel>New Password</FormLabel>
             <InputGroup>
               <Input
                 type={showPassword ? "text" : "password"}
-                name="matchpassword"
+                name="newpassword"
                 onChange={handleChange}
                 borderRadius="none"
                 _hover={{ border: "1px solid black" }}

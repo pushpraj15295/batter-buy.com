@@ -87,11 +87,12 @@ app.post("/refresh", async (req, res) => {
 });
 //****************************************************************************  /reset-password */
 app.post("/reset-password/getotp", async (req, res) => {
-    const { email, password } = req.body;
+    const { email } = req.body;
     try {
         const user = await userModel.findOne({ email });
         const mToken = req.headers.authorization;
-        if (!user) return res.status(400).send("Incorrect credentials entered");
+        if (user) return res.status(200).send("Email exit");
+        else return res.status(401).send("Email Not exit");
         generateOtp(transporter, res, mToken)
     } catch (e) {
         return res.status(404).send(e.message);
