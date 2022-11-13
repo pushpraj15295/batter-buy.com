@@ -26,12 +26,12 @@ const Home = () => {
       .catch((e) => console.log(e));
     /////////
     axios
-      .get("http://localhost:8080/allProducts")
+      .get("http://localhost:8080/kids")
       .then((data) => setdata2(data.data.products))
       .catch((e) => console.log(e));
     //////
     axios
-      .get("http://localhost:8080/allProducts")
+      .get("http://localhost:8080/women")
       .then((data) => setdata3(data.data.products))
       .catch((e) => console.log(e));
   }, []);
@@ -72,7 +72,7 @@ const Home = () => {
           ]}
         >
           {datas?.map((product, index) => {
-            if (index <= 3) {
+            if (index <= 2) {
               return (
                 <Products
                   {...product}
@@ -97,7 +97,7 @@ const Home = () => {
           lineHeight="48px"
           margin="30px"
         >
-          Best Selling Products
+          Best Selling Kids Products
         </Text>
         <Grid
           gap={[2, 4]}
@@ -111,7 +111,7 @@ const Home = () => {
           ]}
         >
           {datas2?.map((product, index) => {
-            if (index <= 3) {
+            if (index <= 2) {
               return (
                 <Products
                   {...product}
@@ -134,7 +134,7 @@ const Home = () => {
           lineHeight="48px"
           margin="30px"
         >
-          Best Selling Products
+          Best Selling Women Products
         </Text>
         <Grid
           gap={[2, 4]}
@@ -148,7 +148,7 @@ const Home = () => {
           ]}
         >
           {datas3?.map((product, index) => {
-            if (index <= 3) {
+            if (index <= 2) {
               return (
                 <Products
                   {...product}
