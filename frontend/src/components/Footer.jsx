@@ -10,6 +10,8 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { CgShoppingCart } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
+import Allproducts from "./../Pages/Allproducts";
 
 const Logo = (props) => {
   return (
@@ -72,6 +74,8 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 };
 
 export default function LargeWithLogoLeft() {
+  const navigate = useNavigate();
+
   return (
     <Box
       bg={useColorModeValue("#1f1f1f", "#1f1f1f")}
@@ -90,11 +94,12 @@ export default function LargeWithLogoLeft() {
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>SUPPORT</ListHeader>
-            <Link href={"#"}>About Us</Link>
-            <Link href={"#"}>Contact Us</Link>
+            <Link onClick={() => navigate("/aboutus")}>About Us</Link>
+            <Link onClick={() => navigate("/contactus")}>Contact Us</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>SHOP</ListHeader>
+            <Link onClick={() => navigate("/allProducts")}>All Products</Link>
             <Link href={"#"}>My account</Link>
           </Stack>
           <Stack align={"flex-start"}>
@@ -109,7 +114,7 @@ export default function LargeWithLogoLeft() {
             <Link href={"#"}>Contact Support Available</Link>
             <Link href={"#"}>Mon To Sat : 10:00 Am to 6:00 Pm</Link>
             <Link href={"#"}>E-mail</Link>
-            <Link href={"#"}>uboricllp@gmail.com</Link>
+            <Link href={"#"}>betterbuy@betterbuy.com</Link>
             <Link href={"#"}>Mobile</Link>
             <Link href={"#"}>+91 97243 82162</Link>
             <Link href={"#"}>+91 82000 99386</Link>
