@@ -1,6 +1,6 @@
-new project - Better-Buy.com
+<h1 >new project - "Better-Buy.com"</h1>
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjrLoqdYu4haeWRPTxlRxAe0UnxKbAVT6vrg&usqp=CAU" >
+<img src="https://raw.githubusercontent.com/pushpraj15295/All-Project-Image/main/UBORIC1.png" >
 
 ## Team members:
 
