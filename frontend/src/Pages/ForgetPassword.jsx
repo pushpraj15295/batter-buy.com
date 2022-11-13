@@ -7,15 +7,20 @@ import {
   FormLabel,
   InputGroup,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import { setToast } from "../redux/products/actionTypes";
 
 const init = {
   email: "",
 };
+// ForgetPassword***************************
 const ForgetPassword = () => {
   const [creds, setCreds] = useState(init);
+ const navigate = useNavigate()
+ const toast = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +32,15 @@ const ForgetPassword = () => {
 
   const handleSubmit=(e) => {
      e.preventDefault();
+      if(creds.email.length > 6){
+        setTimeout(() => {
+          navigate("/resetPassword")
+        },1000)
+      }
+      else{
+         setToast(toast, "Unable to find user account", "error", 1000);
+      }
+     
      console.log("cred", creds)
 
   }
